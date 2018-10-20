@@ -322,7 +322,7 @@ gapminder %>%
   my_theme
 ```
 
-![](hw05-factors_files/figure-markdown_github/unnamed-chunk-5-1.png)
+![](hw05-factors_IO_and_plotly_files/figure-markdown_github/unnamed-chunk-5-1.png)
 
 Although this bar plot correctly tells us the life expectancy of each continent in 2007, it would make a lot more sense to plot these in some logical order such as by descending life expectancy. Does arrange() do this?
 
@@ -340,7 +340,7 @@ gapminder %>%
   my_theme
 ```
 
-![](hw05-factors_files/figure-markdown_github/unnamed-chunk-6-1.png)
+![](hw05-factors_IO_and_plotly_files/figure-markdown_github/unnamed-chunk-6-1.png)
 
 We see that arrange() actually **does not** affect the figure, even though it will affect how it would be displayed in a table (below):
 
@@ -424,7 +424,7 @@ gapminder %>%
   my_theme
 ```
 
-![](hw05-factors_files/figure-markdown_github/unnamed-chunk-8-1.png)
+![](hw05-factors_IO_and_plotly_files/figure-markdown_github/unnamed-chunk-8-1.png)
 
 We can use fct\_rev() to show descending mean life exp instead:
 
@@ -443,7 +443,7 @@ gapminder %>%
   my_theme
 ```
 
-![](hw05-factors_files/figure-markdown_github/unnamed-chunk-9-1.png)
+![](hw05-factors_IO_and_plotly_files/figure-markdown_github/unnamed-chunk-9-1.png)
 
 **Note** arrange() can reorder factors for presentation on a table, but fct\_reorder() will actually not change anything when presenting the data in a table!
 
@@ -1396,7 +1396,7 @@ data_order_fct %>%
   my_theme
 ```
 
-![](hw05-factors_files/figure-markdown_github/unnamed-chunk-14-1.png)
+![](hw05-factors_IO_and_plotly_files/figure-markdown_github/unnamed-chunk-14-1.png)
 
 We check to see that indeed the plot above has countries ordered in descending life expectancy.
 
@@ -1421,7 +1421,7 @@ read_order_fct %>%
   my_theme
 ```
 
-![](hw05-factors_files/figure-markdown_github/unnamed-chunk-15-1.png)
+![](hw05-factors_IO_and_plotly_files/figure-markdown_github/unnamed-chunk-15-1.png)
 
 Here we see that the reordering of factors using fct\_reorder() actually does not persist after a read/write cycle!
 
@@ -1438,7 +1438,7 @@ plot(gapminder$pop, gapminder$lifeExp,
      ylab="Life Expectancy (years)")
 ```
 
-![](hw05-factors_files/figure-markdown_github/unnamed-chunk-16-1.png)
+![](hw05-factors_IO_and_plotly_files/figure-markdown_github/unnamed-chunk-16-1.png)
 
 After a month and a half of STAT545, I can see that this figure is both quite plain and quite bad in terms of presenting any meaningful conclusions! In addition, I see that I used base R to generate this plot, where as ggplot is much easier to use and has much more readable code! Let's remake this figure.
 
@@ -1459,7 +1459,7 @@ p <- gapminder %>%
 p
 ```
 
-![](hw05-factors_files/figure-markdown_github/unnamed-chunk-17-1.png)
+![](hw05-factors_IO_and_plotly_files/figure-markdown_github/unnamed-chunk-17-1.png)
 
 I think this looks **much** better than before; now it looks like something I would be proud to present on a poster!
 
