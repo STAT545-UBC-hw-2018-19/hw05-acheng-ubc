@@ -16,6 +16,7 @@ October 19, 2018
     -   [New Plot](#new-plot)
     -   [Plotly](#plotly)
 -   [Writing figures to file](#writing-figures-to-file)
+-   [But I want to do more?](#but-i-want-to-do-more)
 
 ``` r
 knitr::opts_chunk$set(echo = TRUE)
@@ -1489,3 +1490,36 @@ ggsave("pop_vs_lifeexp_2007.png", plot = p, scale = 1, width = 8, height = 6, un
 We can then load the image using `![Alt text](/image_path)` in Markdown language:
 
 ![Population and Life Expectancy in 2007 from the Gapminder dataset](C:\Users\Kiko0\Desktop\git_docs\hw05-acheng-ubc\pop_vs_lifeexp_2007.png)
+
+But I want to do more?
+----------------------
+
+Let's try to revalue a factor. To demonstrate this, I will pick 5 countries and revalue them to be their *capital city* instead. Let's also filter to just the year 2007 for ease of presentation:
+
+``` r
+rv_capital_cities <- gapminder %>%
+  filter(country %in% c("Canada", "United States", "Japan", "France", "Germany") & year == "2007") %>%
+  droplevels()
+
+levels(rv_capital_cities$country)
+```
+
+    ## [1] "Canada"        "France"        "Germany"       "Japan"        
+    ## [5] "United States"
+
+We see that the levels are just the names of the countries. We can ues fct\_recode to rename them to whatever we want (in this case we want their respective capital cities):
+
+``` r
+rv_capital_cities$country %>%
+  fct_recode("Ottawa" = "Canada",
+             "Washington D.C." = "United States",
+             "Tokyo" = "Japan",
+             "Paris" = "France",
+             "Berlin" = "Germany") %>%
+  levels()
+```
+
+    ## [1] "Ottawa"          "Paris"           "Berlin"          "Tokyo"          
+    ## [5] "Washington D.C."
+
+It worked!
